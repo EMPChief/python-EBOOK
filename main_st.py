@@ -1,11 +1,11 @@
 import glob
 import nltk
-nltk.download('vader_lexicon')
 import streamlit as st
 import plotly.express as px
 import pandas as pd
 from nltk.sentiment import SentimentIntensityAnalyzer
 
+nltk.download('vader_lexicon')
 
 st.set_page_config(
     page_title="EMP Sentiment checker",
@@ -39,14 +39,20 @@ class DiarySentimentAnalyzer:
             self.negativity_scores.append(scores["neg"])
 
     def create_dataframe(self):
+        result_labels = ["Positive" if pos > neg else "Negative" for pos, neg in zip(self.positivity_scores, self.negativity_scores)]
+
         data = {
             "Date": self.dates,
+            "Result": result_labels,
             "Positivity": self.positivity_scores,
             "Negativity": self.negativity_scores,
             "Content": self.contents
         }
+
         df = pd.DataFrame(data)
         return df
+
+
 
     def display_positivity_chart(self):
         st.subheader("Positivity")

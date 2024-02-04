@@ -1,8 +1,12 @@
 import glob
+import nltk
+nltk.download('vader_lexicon')
 import streamlit as st
 import plotly.express as px
 import pandas as pd
 from nltk.sentiment import SentimentIntensityAnalyzer
+
+
 st.set_page_config(
     page_title="EMP Sentiment checker",
     page_icon="favicon.ico",

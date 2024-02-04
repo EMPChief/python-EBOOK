@@ -1,2 +1,4 @@
-re
 nltk
+streamlit
+plotly
+pandas

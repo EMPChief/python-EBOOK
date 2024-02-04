@@ -4,7 +4,7 @@ import plotly.express as px
 import pandas as pd
 from nltk.sentiment import SentimentIntensityAnalyzer
 st.set_page_config(
-    page_title="Bjørn-Magne Weather Forecast",
+    page_title="EMP Sentiment checker",
     page_icon="favicon.ico",
 )
 class DiarySentimentAnalyzer:
